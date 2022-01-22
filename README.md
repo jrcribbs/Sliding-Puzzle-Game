@@ -1,5 +1,5 @@
 # Sliding-Puzzle-Game
-Final project for Intensive Foundations of CS class at Northeastern University. 
+Final project for Intensive Foundations of Computer Science class at Northeastern University. 
 
 For detailed design overview (including trade-offs I had to make as well as ideas for version 2) see design.txt. 
 
