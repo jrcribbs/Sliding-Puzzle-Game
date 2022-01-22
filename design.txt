@@ -1,0 +1,43 @@
+J.R. Cribbs
+CS5001 - Fall 2021
+Final Project
+design.txt
+
+My sliding puzzle game relies on classes to function properly. The two most
+critical are Tiles and Gameboard. Tiles makes "tile" objects, which are turtles
+themselves. They know their location, whether they are the "blank" tile, and
+whether they have been clicked. They also place themselves on the board when
+called, and move themselves to new position if Gameboard validates user's move.
+Gameboard is the main controller of the game. Gameboard keeps track of
+user clicks, checking whether attempted moves are valid and keeps track of
+where tiles are on the board/if the player has won or lost.
+
+play_game calls functions that build a nested list of tile objects, based on
+where they should be on the board. Visualising this, for a puzzle with three
+rows the turtle_list would look like:
+[[Top Row Tiles][Middle Row Tiles][Bottom Row Tiles]].
+This list is fed into the gameboard, which keeps track of tile positions from
+there. It compares the list of pictures pulled from the nested list to a
+regular list of pictures in the correct order. If both lists are the same, the
+win condition is met. In my game, the user wins if they solve the puzzle in
+as many moves as they chose at the beginning of the game (meaning, if a player
+selects 5 moves, they will lose once the sixth move is made).
+
+One of the biggest difficulties I ran into when coding up this project was
+clearing the board when a new puzzle is loaded. Because my tiles are individual
+turtle objects, one simple turtle.clear() wouldn't cut it. I tried writing
+a method within the Tile class to clear each turtle if it was called, but I
+think the way my nested list works it was mucking up the process somehow. I
+was never able to get it to work properly, so in the end I wrote a short
+command for my gameboard turtle to cover the puzzle area with a white box
+before loading in the new puzzle. This solution is of not ideal, but it
+produces the desired effect. This issue would be the first thing I would try to
+fix in version 1.2! Finally, due to the way my program compares data from the
+leaderboard, I also decided that anyone who won but used 10 or more moves
+would not be added.
+
+Sources used:
+https://www.w3schools.com/python/python_howto_remove_duplicates.asp
+https://www.w3schools.com/python/python_datetime.asp
+https://stackoverflow.com/questions/48486533/clear-only-a-part-of-the-screen-in-turtle-graphics
+and some sage advice from our wonderful TAs!
